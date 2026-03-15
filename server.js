@@ -4,6 +4,7 @@ const path = require('path');
 const multer = require('multer');
 const connectDB = require('./config/database');
 const userRoutes = require('./routes/userRoutes');
+const confessionRoutes = require('./routes/confessionRoutes');
 
 require('dotenv').config();
 
@@ -22,6 +23,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/users', userRoutes);
+app.use('/api/confessions', confessionRoutes);
 
 // Health check
 app.get('/', (req, res) => {

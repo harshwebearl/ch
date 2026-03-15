@@ -6,10 +6,13 @@ const auth = require('../middleware/auth');
 // Public routes
 router.post('/register', userController.uploadImage, userController.register);
 router.post('/login', userController.login);
+router.post('/forgot-password', userController.forgotPassword);
+router.post('/reset-password', userController.resetPassword);
 
 // Protected routes
 router.get('/profile', auth, userController.getProfile);
 router.put('/profile', auth, userController.uploadImage, userController.updateUser);
+router.put('/change-password', auth, userController.changePassword);
 router.delete('/profile', auth, userController.deleteUser);
 
 // Admin routes (optional)

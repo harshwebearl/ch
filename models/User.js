@@ -30,6 +30,14 @@ const userSchema = new mongoose.Schema({
   profile_image: {
     type: String, // Store Cloudinary URL
     default: null
+  },
+  resetToken: {
+    type: String,
+    default: null
+  },
+  resetTokenExpiry: {
+    type: Date,
+    default: null
   }
 }, {
   timestamps: true

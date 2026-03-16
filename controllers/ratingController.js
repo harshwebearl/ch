@@ -4,10 +4,10 @@ const Rating = require('../models/Rating');
 exports.createRating = async (req, res) => {
   try {
     const { ratedUserId, star, title } = req.body;
-    const ratedByUserId = req.user?.id || req.userId;
+    const ratedByUserId = req.user?.id || req.user?._id || req.user?.userId;
 
     if (!ratedByUserId) {
-      return res.status(401).json({ message: 'User not authenticated' });
+      return res.status(401).json({ message: 'User not authenticated', user: req.user });
     }
 
     if (!ratedUserId || !star || !title) {

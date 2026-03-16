@@ -6,8 +6,8 @@ exports.createRating = async (req, res) => {
     const { ratedUserId, star, title } = req.body;
     const ratedByUserId = req.user.id;
 
-    if (!star || !title) {
-      return res.status(400).json({ message: 'Star and title are required' });
+    if (!ratedUserId || !star || !title) {
+      return res.status(400).json({ message: 'ratedUserId, star and title are required' });
     }
 
     if (star < 1 || star > 5) {

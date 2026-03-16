@@ -6,6 +6,7 @@ const connectDB = require('./config/database');
 const userRoutes = require('./routes/userRoutes');
 const confessionRoutes = require('./routes/confessionRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
+const ratingRoutes = require('./routes/ratingRoutes');
 
 require('dotenv').config();
 
@@ -26,6 +27,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/users', userRoutes);
 app.use('/api/confessions', confessionRoutes);
 app.use('/api/feedback', feedbackRoutes);
+app.use('/api/ratings', ratingRoutes);
 
 // Health check
 app.get('/', (req, res) => {

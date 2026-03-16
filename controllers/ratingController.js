@@ -14,10 +14,6 @@ exports.createRating = async (req, res) => {
       return res.status(400).json({ message: 'Star must be between 1 and 5' });
     }
 
-    if (ratedUserId === ratedByUserId) {
-      return res.status(400).json({ message: 'You cannot rate yourself' });
-    }
-
     const rating = new Rating({
       ratedUserId,
       ratedByUserId,
